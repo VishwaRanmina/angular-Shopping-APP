@@ -1,0 +1,26 @@
+
+<ng-container *ngIf="displayType === 'Grid'; else catList">
+  <div class="container mt-4">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-wrap gap-6 justify-center">
+        <ng-container *ngFor="let category of categories">
+          <div class="flex-shrink-0">
+            <app-category [category]="category" componentType="home"></app-category>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #catList>
+  <div class="overflow-x-auto whitespace-nowrap gap-4 px-4 scrollbar-hide flex pb-4">
+    <ng-container *ngFor="let category of categories">
+      <div class="inline-block flex-shrink-0">
+        <app-category [category]="category" componentType="productCom"></app-category>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+
